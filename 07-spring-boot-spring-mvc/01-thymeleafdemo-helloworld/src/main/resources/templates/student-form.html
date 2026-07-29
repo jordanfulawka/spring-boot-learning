@@ -25,6 +25,10 @@
                             th:value="${language}"
                             th:text="${language}"/>
         <br><br>
+        Favourite Operating Systems:
+        <input type="checkbox" th:field="*{favouriteSystems}"
+               th:each="system : ${systems}" th:value="${system}" th:text="${system}" />
+        <br><br>
         <input type="submit" value="Submit" />
     </form>
 </body>
