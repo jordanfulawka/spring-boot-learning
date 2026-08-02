@@ -11,16 +11,18 @@
     Welcome to the luv2code company home page!
     </p>
 
-    <hr>
-
-    <p>
-        <a th:href="@{/leaders}">Leadership Meeting</a>
-        (Only for Managers)
-    </p>
-    <p>
-        <a th:href="@{/systems}">IT Systems Meeting</a>
-        (Only for Admins)
-    </p>
+    <div sec:authorize="hasRole('MANAGER')">
+        <p>
+            <a th:href="@{/leaders}">Leadership Meeting</a>
+            (Only for Managers)
+        </p>
+    </div>
+    <div sec:authorize="hasRole('ADMIN')">
+        <p>
+            <a th:href="@{/systems}">IT Systems Meeting</a>
+            (Only for Admins)
+        </p>
+    </div>
     <hr>
     <p>
         User: <span sec:authentication="principal.username"></span>
